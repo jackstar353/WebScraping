@@ -1,5 +1,3 @@
-
-from random import betavariate
 import pip._vendor.requests as requests
 
 from bs4 import BeautifulSoup
@@ -8,7 +6,9 @@ import pandas as pd
 
 
 def extract(page):
+    #google 'my user agent' and copy the string into headers variable
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.82 Safari/537.36'}
+    #paste whatever url of the website you want to scrape
     url=f'https://ie.indeed.com/jobs?q=python%20Developer&l=Ireland&vjk={page}'
     response =requests.get(url, headers)
     soup = BeautifulSoup(response.content, 'html.parser')
